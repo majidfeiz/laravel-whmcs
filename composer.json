@@ -1,5 +1,5 @@
 {
-    "name": "sermajid/LaravelWhmcs",
+    "name": "sermajid/laravel-whmcs",
     "description": "laravel api whmcs",
     "type": "library",
     "authors": [{
@@ -8,6 +8,7 @@
     }],
     "minimum-stability": "dev",
     "prefer-stable": true,
+
     "autoload": {
         "psr-4": {
             "sermajid\\LaravelWhmcs\\": "src/"
@@ -17,10 +18,14 @@
         "laravel": {
             "providers": [
                 "sermajid\\LaravelWhmcs\\WhmcsServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Whmcs": "sermajid\\LaravelWhmcs\\Facades\\Whmcs"
+            }
         }
     },
     "require": {
-        "php": "^7.0"
+        "php": "^7.0",
+        "sermajid/LaravelWhmcs": "^1.0@dev"
     }
 }
