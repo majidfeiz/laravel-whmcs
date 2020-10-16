@@ -11,5 +11,12 @@
             "sermajid\\LaravelWhmcs\\": "src/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "sermajid\\LaravelWhmcs\\WhmcsServiceProvider"
+            ]
+        }
+    },
     "require": {}
 }
