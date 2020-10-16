@@ -1,0 +1,15 @@
+{
+    "name": "sermajid/LaravelWhmcs",
+    "description": "laravel api whmcs",
+    "type": "library",
+    "authors": [{
+        "name": "Majid Feizi",
+        "email": "sermajid3@gmail.com"
+    }],
+    "autoload": {
+        "psr-4": {
+            "sermajid\\LaravelWhmcs\\": "src/"
+        }
+    },
+    "require": {}
+}
