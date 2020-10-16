@@ -6,7 +6,7 @@
         "name": "Majid Feizi",
         "email": "sermajid3@gmail.com"
     }],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "prefer-stable": true,
     "homepage": "https://github.com/sermajid/laravel-whmcs",
     "autoload": {
@@ -25,7 +25,10 @@
         }
     },
     "require": {
-        "php": "^7.0"
+        "php": "^7.0",
+        "guzzlehttp/guzzle": "~6.0",
+        "ext-json": "*",
+        "laravel/framework": "^5|^6|^7"
     },
     "repositories": [
         {
