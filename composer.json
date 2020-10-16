@@ -31,5 +31,6 @@
         {
             "type": "composer",
             "url": "https://github.com/sermajid/laravel-whmcs.git"
-        },
+        }
+        ]
 }
