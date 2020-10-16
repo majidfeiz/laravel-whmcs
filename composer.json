@@ -26,5 +26,10 @@
     },
     "require": {
         "php": "^7.0"
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://github.com/sermajid/laravel-whmcs.git"
+        },
 }
