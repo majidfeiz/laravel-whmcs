@@ -4,15 +4,11 @@ laravel-whmcs
 A simple Laravel interface for interacting with the WHMCS API.
 
 # Installation
-To install the package, simply add the following to your Laravel installation's `composer.json` file:
+Install the package:
 
-```json
-"require": {
-	"laravel/framework": "8.*",
-	"sermajid/laravel-whmcs": "dev-master"
-},
 ```
-Run `composer update` to pull in the files.
+composer require sermajid/laravel-whmcs
+```
 
 Then, add the following **Service Provider** to your `providers` array in your `config/app.php` file:
 
