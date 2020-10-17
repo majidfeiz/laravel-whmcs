@@ -3,10 +3,9 @@
 
 namespace sermajid\LaravelWhmcs;
 
-use sermajid\LaravelWhmcs\whmcs\Clients;
-use sermajid\LaravelWhmcs\whmcs\Orders;
+use sermajid\LaravelWhmcs\whmcs\WSystem;
 
-class Whmcs extends Orders
+class Whmcs extends WSystem
 {
 
 

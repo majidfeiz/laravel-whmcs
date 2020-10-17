@@ -4,7 +4,6 @@
 namespace sermajid\Laravelwhmcs\whmcs;
 
 
-use sermajid\LaravelWhmcs\Whmcs;
 use sermajid\LaravelWhmcs\WhmcsCore;
 
 class Clients extends WhmcsCore
@@ -105,6 +104,27 @@ class Clients extends WhmcsCore
     }
 
     /**
+     * @param int $client_id
+     * @param int $start
+     * @param int $limit
+     * @param string|null $date
+     * @param string|null $subject
+     * @return array
+     */
+
+    public function GetEmails(int $client_id,int $start = 0,int $limit = 25,string $date=null,string $subject=null)
+    {
+        $data = [
+            'action'        =>  'GetEmails',
+            'clientid'      =>  $client_id,
+            'limitstart'    =>  $start,
+            'limitnum'      =>  $limit
+        ];
+
+        return $this->submitRequest($data);
+    }
+
+    /**
      * Return a list of a client's products
      *
      * @param int $client_id
@@ -119,6 +139,24 @@ class Clients extends WhmcsCore
             'clientid'      => $client_id,
             'limitstart'    =>  $start,
             'limitnum'      =>  $limit
+        ];
+
+        return $this->submitRequest($data);
+    }
+
+    /**
+     * getClientPassword
+     * @param string|null $user_id
+     * @param string|null $email
+     * @return array
+     */
+
+    public function getClientPassword(string $user_id=null,string $email=null)
+    {
+        $data = [
+            'action'        => 'GetClientPassword',
+            'userid'      => $user_id,
+            'email'    =>  $email,
         ];
 
         return $this->submitRequest($data);
