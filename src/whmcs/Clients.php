@@ -53,7 +53,7 @@ class Clients extends WhmcsCore
      * @param int $limit
      * @return array
      */
-    public function getClients($start = 0, $limit = 25, $search = null)
+    public function getClients($start = 0, $limit = 25,$search = null)
     {
         $data = [
             'action'        => 'getclients',
@@ -70,16 +70,17 @@ class Clients extends WhmcsCore
     /**
      * Returns the specified client's data
      *
-     * @param string|int $client_id
+     * @param int $client_id
      * @param bool $stats
      * @return array
      */
-    public function getClientDetails($client_id, $stats = false)
+    public function getClientDetails(int $client_id,bool $stats = false,string $email=null)
     {
         $data = [
             'action'    =>  'getclientsdetails',
             'clientid'  =>  $client_id,
-            'stats'     =>  $stats
+            'stats'     =>  $stats,
+            'email'     =>  $email
         ];
 
         return $this->submitRequest($data);
@@ -112,13 +113,15 @@ class Clients extends WhmcsCore
      * @return array
      */
 
-    public function GetEmails(int $client_id,int $start = 0,int $limit = 25,string $date=null,string $subject=null)
+        public function GetEmails(int $client_id,int $start = 0,int $limit = 25,string $date=null,string $subject=null)
     {
         $data = [
             'action'        =>  'GetEmails',
             'clientid'      =>  $client_id,
             'limitstart'    =>  $start,
-            'limitnum'      =>  $limit
+            'limitnum'      =>  $limit,
+            'date'          =>  $date,
+            'subject'       =>  $subject
         ];
 
         return $this->submitRequest($data);
