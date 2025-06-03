@@ -2,27 +2,26 @@
 
 
 namespace sermajid\LaravelWhmcs;
+
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 use sermajid\LaravelWhmcs\Whmcs;
+use sermajid\LaravelWhmcs\Facades\Whmcs as WhmcsFacade;
 
 
 class WhmcsServiceProvider extends ServiceProvider
 {
-    /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = false;
 
     /**
      * Bootstrap the application events.
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
-        //
+        $this->publishes([
+            __DIR__.'/config/whmcs.php' => config_path('whmcs.php'),
+        ], 'config');
     }
 
     /**
@@ -30,20 +29,18 @@ class WhmcsServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
-        $this->app->bind('whmcs', function($app) {
-            return new WHMCS;
+        $this->mergeConfigFrom(__DIR__.'/config/whmcs.php', 'whmcs');
+
+        $this->app->singleton('whmcs', function () {
+            return new Whmcs();
         });
 
-        $this->app->booting(function() {
-            $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-            $loader->alias('WHMCS', 'LaravelWhmcs\Facades\WHMCS');
+        $this->app->booting(function () {
+            $loader = AliasLoader::getInstance();
+            $loader->alias('Whmcs', WhmcsFacade::class);
         });
-
-        $this->publishes([
-            dirname(__FILE__).'/config/whmcs.php' => config_path('whmcs.php')
-        ]);
     }
 
     /**

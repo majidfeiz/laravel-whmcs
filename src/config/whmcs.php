@@ -1,7 +1,7 @@
 <?php
 return [
     // API URL
-    'url'		=>	env('WHMCS_URL', 'http://localhost:2000/includes/api.php'),
+    'url' => env('WHMCS_URL', 'http://localhost:2000/includes/api.php'),
 
     // API USERNAME
     'username'	=>	env('WHMCS_USERNAME','admin_user'),
