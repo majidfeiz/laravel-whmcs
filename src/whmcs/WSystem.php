@@ -1,7 +1,7 @@
 <?php
 
 
-namespace sermajid\Laravelwhmcs\whmcs;
+namespace sermajid\LaravelWhmcs\whmcs;
 use sermajid\LaravelWhmcs\whmcs\Orders;
 
 class WSystem extends Orders

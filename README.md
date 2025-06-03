@@ -46,15 +46,27 @@ return [
 ```php
 // app/Http/routes.php
 
-Route::get('/products/{client_id}', function() {
-
-    $start = 0;
-    $limit = 25;
-
-    $products = WHMCS::getClientProducts($client_id, $start, $limit);
+Route::get('/products/{client_id}', function () {
+    $products = Whmcs::api('GetClientsProducts', [
+        'clientid' => $client_id,
+        'limitstart' => 0,
+        'limitnum' => 25,
+    ]);
 
     return json_encode($products);
 });
+```
+
+# Generic API Usage
+You can call any WHMCS API action using the `api` helper:
+
+```php
+$result = Whmcs::api('GetOrders', ['limitstart' => 0, 'limitnum' => 10]);
+```
+
+# Running Tests
+```
+vendor/bin/phpunit
 ```
 
 # WHMCS Docs
